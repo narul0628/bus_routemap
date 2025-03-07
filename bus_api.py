@@ -114,7 +114,7 @@ def get_gyeonggi_bus_stops(key, routeid):
     # 경기 버스 정류장 목록 조회
     params = {'serviceKey': key, 'routeId': routeid}
     
-    route_api_res = requests.get('http://apis.data.go.kr/6410000/busrouteservice/getBusRouteStationList', params = params, timeout = 20).text
+    route_api_res = requests.get('http://apis.data.go.kr/6410000/busstationservice/v2', params = params, timeout = 20).text
     route_api_tree = elemtree.fromstring(route_api_res)
     
     api_common_err = route_api_tree.find('./cmmMsgHeader/returnAuthMsg')
